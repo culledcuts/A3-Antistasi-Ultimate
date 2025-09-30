@@ -19,6 +19,7 @@ private _vehiclesLightArmed = ["I_G_Offroad_01_armed_F"];
 private _vehiclesAt = ["I_G_Offroad_01_AT_F"];
 ["vehiclesTruck", ["I_G_Van_01_transport_F"]] call _fnc_saveToTemplate;
 private _vehicleAA = [];
+private _vehiclesSupply = ["C_Van_01_box_F"];
 
 ["vehiclesBoat", ["I_C_Boat_Transport_02_F"]] call _fnc_saveToTemplate;
 
@@ -26,6 +27,7 @@ private _vehicleAA = [];
 
 private _vehiclesCivCar = ["C_Offroad_01_F", "C_Hatchback_01_F", "C_Hatchback_01_sport_F", "C_SUV_01_F"];
 ["vehiclesCivTruck", ["C_Truck_02_transport_F", "C_Van_02_transport_F", "C_Van_02_vehicle_F"]] call _fnc_saveToTemplate;
+["vehiclesCivSupply", _vehiclesSupply] call _fnc_saveToTemplate;
 ["vehiclesCivHeli", ["C_Heli_Light_01_civil_F"]] call _fnc_saveToTemplate;
 ["vehiclesCivBoat", ["C_Boat_Civil_01_F", "C_Rubberboat"]] call _fnc_saveToTemplate;
 
