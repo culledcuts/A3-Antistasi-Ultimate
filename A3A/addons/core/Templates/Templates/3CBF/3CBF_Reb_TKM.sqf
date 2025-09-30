@@ -115,7 +115,7 @@ private _initialRebelEquipment = [
     "UK3CB_V_CW_Chestrig","UK3CB_V_CW_Chestrig_2_Small",
     "UK3CB_V_Chicom_Brown", "UK3CB_V_Chicom_Brown_m88",
     "UK3CB_V_Chicom_Desert", "UK3CB_V_Chicom_Desert_m88",
-    "UK3CB_CHC_C_B_MED", "B_AssaultPack_blk"
+    "B_AssaultPack_blk"
 ];
 
 if (A3A_hasTFAR) then {_initialRebelEquipment append ["tf_microdagr","tf_anprc154"]};

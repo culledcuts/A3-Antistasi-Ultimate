@@ -112,7 +112,7 @@ private _initialRebelEquipment = [
     "rhs_weap_rsp30_red", "rhs_mag_rsp30_red",
     "rhs_mag_nspd", "rhs_mag_nspn_yellow", "rhs_mag_nspn_green", "rhs_mag_nspn_red",
     "rhs_vest_pistol_holster","rhs_vest_commander","rhs_6sh46",
-    "UK3CB_CHC_C_B_MED", "B_AssaultPack_blk"
+    "B_AssaultPack_blk"
 ];
 
 if (A3A_hasTFAR) then {_initialRebelEquipment append ["tf_microdagr","tf_anprc154"]};
