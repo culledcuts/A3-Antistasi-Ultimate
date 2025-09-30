@@ -728,9 +728,9 @@ _militaryLoadoutData set ["marksmanRifles", _marksmanRifles];
 //    Police Loadout Data    //
 ///////////////////////////////
 private _policeLoadoutData = _loadoutData call _fnc_copyLoadoutData; 
-_policeLoadoutData set ["uniforms", ["U_B_GEN_Soldier_F", "U_B_GEN_Commander_F"]];
-_policeLoadoutData set ["vests", ["V_TacVest_gen_F"]];
-private _helmets = ["H_MilCap_gen_F", "H_Beret_gen_F"];
+_policeLoadoutData set ["uniforms", ["Police_U_I_P_PoliceUniform_F", "Police_U_I_P_PoliceUniform_gloves_F"]];
+_policeLoadoutData set ["vests", ["V_TacVest_blk_POLICE"]];
+private _helmets = ["H_Cap_police", "H_Beret_blk_POLICE"];
 if (_hasLawsOfWar) then {
     _helmets pushBack "H_PASGT_basic_blue_F";
 };

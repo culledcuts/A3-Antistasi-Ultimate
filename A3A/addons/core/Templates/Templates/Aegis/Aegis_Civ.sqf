@@ -19,8 +19,7 @@ private _civCarsWithWeights = [
     ,"C_Van_02_vehicle_F", 1.0                // van from Orange
     ,"C_Van_02_transport_F", 0.2            // minibus
     ,"C_Offroad_02_unarmed_F", 0.5            // Apex 4WD
-    ,"C_Offroad_01_comms_F", 0.1            // Contact
-    ,"C_Offroad_01_covered_F", 0.1
+    ,"C_Offroad_01_covered_F", 0.1            // Contact
 ];
 
 if (_hasApex) then {
@@ -40,7 +39,6 @@ if (_hasApex) then {
 
 ["vehiclesCivBoat", [
     "C_Boat_Civil_01_rescue_F", 0.1            // motorboats
-    ,"C_Boat_Civil_01_police_F", 0.1
     ,"C_Boat_Civil_01_F", 1.0
     ,"C_Rubberboat", 1.0                    // rescue boat
     ,"C_Boat_Transport_02_F", 1.0            // RHIB
@@ -78,14 +76,9 @@ private _civUniforms = [
     "U_C_Man_casual_4_F",
     "U_C_Man_casual_5_F",
     "U_C_Man_casual_6_F",
-    "U_C_ArtTShirt_01_v1_F",
-    "U_C_ArtTShirt_01_v2_F",
-    "U_C_ArtTShirt_01_v3_F",
-    "U_C_ArtTShirt_01_v4_F",
-    "U_C_ArtTShirt_01_v5_F",
-    "U_C_ArtTShirt_01_v6_F",
-    "U_NikosBody",
-    "U_NikosAgedBody",
+    "U_C_Man_casual_7_F",
+    "U_C_Man_casual_8_F",
+    "U_C_Man_casual_9_F",
     "U_C_Poloshirt_blue",
     "U_C_Poloshirt_burgundy",
     "U_C_Poloshirt_stripped",
@@ -94,14 +87,16 @@ private _civUniforms = [
     "U_C_Poloshirt_redwhite",
     "U_OrestesBody",
     "U_C_Poor_1",
+    "U_C_Poor_2",
     "U_C_HunterBody_grn",
-    "U_I_L_Uniform_01_tshirt_skull_F",
-    "U_I_L_Uniform_01_tshirt_black_F",
-    "U_I_L_Uniform_01_tshirt_sport_F",
-    "U_C_Scientist",
-    "U_C_Uniform_Scientist_02_formal_F",
-    "U_C_Uniform_Scientist_02_F",
-    "U_C_Uniform_Scientist_01_F"
+    "U_C_Commoner1_3",
+    "Atlas_U_C_CommonerJacket_01_blue_F",
+    "Atlas_U_C_CommonerJacket_01_grey_F",
+    "Atlas_U_C_CommonerJacket_01_marroon_F",
+    "Atlas_U_C_Uniform_01_shirt_pattern_F",
+    "Atlas_U_C_Uniform_01_shirt_striped_F",
+    "Atlas_U_C_Uniform_01_shirt_white_F",
+    "Atlas_U_C_Uniform_01_tshirt_white_F"
 ];
 
 private _pressUniforms = [
@@ -126,7 +121,6 @@ if (_hasApex) then {
 
 if (_hasLawsOfWar) then {
   _dlcUniforms append [
-    "U_C_Paramedic_01_F",
     "U_C_Mechanic_01_F"
   ];
   _workerUniforms append [
@@ -181,7 +175,9 @@ private _civhats = [
     "H_Cap_tan",
     "H_StrawHat",
     "H_StrawHat_dark",
-    "H_Hat_checker"
+    "H_Hat_checker",
+    "H_Hat_brown",
+    "H_Hat_tan"
 ];
 
 ["headgear", _civHats] call _fnc_saveToTemplate;

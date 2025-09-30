@@ -82,20 +82,17 @@ if (_hasWs) then {
 ///////////////////////////
 
 private _initialRebelEquipment = [
-    "sgun_Mp153_classic_F",
     "hgun_Pistol_heavy_02_F",
     "hgun_ACPC2_black_F",
     "hgun_PDW2000_F",
-    "4Rnd_12Gauge_Pellets", "4Rnd_12Gauge_Slug",
-    "30Rnd_9x21_Mag", "30Rnd_9x21_Red_Mag",
+    "30Rnd_9x21_Mag_v2", "30Rnd_9x21_Red_Mag_v2",
     "9Rnd_45ACP_Mag",
     "6Rnd_45ACP_Cylinder",
     "MiniGrenade","SmokeShell",
     ["IEDUrbanSmall_Remote_Mag", 10], ["IEDLandSmall_Remote_Mag", 10], ["IEDUrbanBig_Remote_Mag", 3], ["IEDLandBig_Remote_Mag", 3],
     "B_FieldPack_oli","B_FieldPack_blk","B_FieldPack_khk",
-    "V_BandollierB_blk","V_BandollierB_cbr","V_BandollierB_rgr","V_BandollierB_khk","V_BandollierB_oli","V_Rangemaster_belt",
-    "Binocular", "acc_flashlight","acc_flashlight_smg_01","acc_flashlight_pistol",
-    "Aegis_V_Ammo_Bandolier_F"
+    "V_BandollierB_blk","V_BandollierB_cbr","V_BandollierB_rgr","V_BandollierB_khk","V_BandollierB_oli","V_Rangemaster_belt", "V_Rangemaster_belt_blk",
+    "Binocular", "acc_flashlight","acc_flashlight_smg_01","acc_flashlight_pistol"
 ];
 
 
@@ -116,10 +113,7 @@ if (_hasLawsOfWar) then {
         "B_Messenger_Black_F", 
         "B_Messenger_Coyote_F", 
         "B_Messenger_Gray_F",
-        "B_Messenger_Olive_F", 
-        "B_LegStrapBag_black_F", 
-        "B_LegStrapBag_coyote_F", 
-        "B_LegStrapBag_olive_F"
+        "B_Messenger_Olive_F"
     ];
 } else {
     _backpacks append ["B_FieldPack_blk","B_AssaultPack_blk"];
@@ -138,8 +132,6 @@ if (_hasContact) then {
 
 if (_hasApex) then {
     _initialRebelEquipment append [
-        "hgun_Pistol_01_F",
-        "10Rnd_9x21_Mag",
         ["launch_RPG7_F", 3], 
         ["RPG7_F", 9]
     ];
@@ -163,45 +155,23 @@ private _rebUniforms = [
     "U_IG_leader",
     "U_IG_Guerrilla_6_1",
     "U_I_G_resistanceLeader_F",
-    "U_I_L_Uniform_01_deserter_F"
+    "Opf_U_IG_Guerilla3_3_F",
+    "Opf_U_O_S_Uniform_01_sweater_F",
+    "Opf_U_I_I_Uniform_01_tshirt_black_F"
 ];
 
 private _dlcUniforms = [];
 
-if (_hasContact) then {
-    _dlcUniforms append [
-        "U_I_L_Uniform_01_camo_F",
-        "U_I_L_Uniform_01_tshirt_black_F",
-        "U_I_L_Uniform_01_tshirt_olive_F",
-        "U_I_L_Uniform_01_tshirt_skull_F",
-        "U_I_L_Uniform_01_tshirt_sport_F"
-    ];
-};
-
 if (_hasApex) then {
     _dlcUniforms append [
-        "U_I_C_Soldier_Bandit_4_F",
-        "U_I_C_Soldier_Bandit_1_F",
-        "U_I_C_Soldier_Bandit_2_F",
         "U_I_C_Soldier_Bandit_5_F",
-        "U_I_C_Soldier_Bandit_3_F",
-        "U_I_C_Soldier_Para_2_F",
-        "U_I_C_Soldier_Para_3_F",
-        "U_I_C_Soldier_Para_5_F",
-        "U_I_C_Soldier_Para_4_F",
-        "U_I_C_Soldier_Para_1_F",
-        "U_I_C_Soldier_Camo_F"
+        "U_I_C_Soldier_Bandit_3_F"
     ];
 };
 
-if (_hasWs) then {
+if (_hasContact) then {
     _dlcUniforms append [
-        "U_lxWS_ION_Casual1",
-        "U_lxWS_ION_Casual2",
-        "U_lxWS_ION_Casual3",
-        "U_lxWS_ION_Casual4",
-        "U_lxWS_ION_Casual5",
-        "U_lxWS_SFIA_deserter"
+        "U_C_E_LooterJacket_01_F"
     ];
 };
 
@@ -209,16 +179,42 @@ if (_hasWs) then {
 
 ["headgear", [
     "H_Booniehat_khk_hs",
+    "H_Booniehat_khk",
+    "H_Booniehat_oli",
     "H_Booniehat_tan",
+    "H_Cap_oli",
     "H_Cap_tan",
     "H_Cap_oli_hs",
     "H_Cap_blk",
     "H_Cap_headphones",
     "H_ShemagOpen_tan",
+    "H_ShemagOpen_tan_hs",
+    "H_ShemagOpen_khk",
+    "H_ShemagOpen_khk_hs",
+    "H_Shemag_olive",
     "H_Shemag_olive_hs",
+    "H_Shemag_khk",
+    "H_Shemag_khk_hs",
+    "H_Shemag_red",
+    "H_Shemag_red_hs",
+    "H_Shemag_blk",
+    "H_Shemag_blk_hs",
     "H_Bandanna_khk_hs",
+    "H_Bandanna_khk",
     "H_Bandanna_sand",
-    "H_Bandanna_cbr"
+    "H_Bandanna_cbr",
+    "H_Bandanna_sgg",
+    "H_Watchcap_blk",
+    "H_Watchcap_blk_hs",
+    "H_Watchcap_camo",
+    "H_Watchcap_camo_hs",
+    "H_Watchcap_cbr",
+    "H_Watchcap_cbr_hs",
+    "H_Watchcap_khk",
+    "H_Watchcap_khk_hs",
+    "H_Beret_blk",
+    "H_Beret_gry",
+    "H_Beret_brn"
 ]] call _fnc_saveToTemplate;
 
 /////////////////////
@@ -244,9 +240,9 @@ _loadoutData set ["binoculars", ["Binocular"]];
 
 _loadoutData set ["uniforms", _rebUniforms];
 
-_loadoutData set ["glasses", ["G_Cigarette","G_Shades_Black", "G_Shades_Blue", "G_Shades_Green", "G_Shades_Red", "G_Aviator", "G_Spectacles", "G_Spectacles_Tinted", "G_Sport_BlackWhite", "G_Sport_Blackyellow", "G_Sport_Greenblack", "G_Sport_Checkered", "G_Sport_Red", "G_Squares", "G_Squares_Tinted"]];
+_loadoutData set ["glasses", ["G_Shades_Black", "G_Shades_Blue", "G_Shades_Green", "G_Shades_Red", "G_Shades_Yellowred", "G_Aviator", "G_Spectacles", "G_Spectacles_Tinted", "G_Sport_BlackWhite", "G_Sport_Blackyellow", "G_Sport_Greenblack", "G_Sport_Checkered", "G_Sport_Red", "G_Sport_Blackred", "G_Squares", "G_Squares_Tinted"]];
 _loadoutData set ["goggles", ["G_Lowprofile"]];
-_loadoutData set ["facemask", ["G_Bandanna_blk", "G_Bandanna_oli", "G_Bandanna_khk", "G_Bandanna_tan", "G_Bandanna_beast", "G_Bandanna_shades", "G_Bandanna_sport", "G_Bandanna_aviator"]];
+_loadoutData set ["facemask", ["G_Cigarette", "G_Bandanna_shemag", "G_Bandanna_blk", "G_Bandanna_oli", "G_Bandanna_khk", "G_Bandanna_beast", "G_Bandanna_shades", "G_Bandanna_sport", "G_Bandanna_aviator", "G_Balaclava_blk", "G_Balaclava_lowprofile"]];
 
 _loadoutData set ["items_medical_basic", ["BASIC"] call A3A_fnc_itemset_medicalSupplies];
 _loadoutData set ["items_medical_standard", ["STANDARD"] call A3A_fnc_itemset_medicalSupplies];
