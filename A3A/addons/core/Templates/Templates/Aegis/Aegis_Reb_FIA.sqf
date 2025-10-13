@@ -52,8 +52,8 @@ if (_hasApex) then {
 };
 if (_hasWs) then {
     _vehiclesLightUnarmed pushBack "I_G_Offroad_01_armor_base_lxWS";
-    _vehiclesLightArmed pushBack "I_G_Offroad_01_armor_AT_lxWS";
-    _vehiclesAt pushBack "I_C_Offroad_02_AT_F";
+    _vehiclesLightArmed pushBack "I_G_Offroad_01_armor_armed_lxWS";
+    _vehiclesAt pushBack "I_G_Offroad_01_armor_AT_lxWS";
     _vehicleAA pushBack "I_Tura_Truck_02_aa_lxWS";
     _staticAA = ["I_Tura_ZU23_lxWS"];
 };
