@@ -72,9 +72,9 @@ private _militiaAPCs = if (_hasTanks) then {["I_LT_01_cannon_F"]} else {[]};
 ["vehiclesMilitiaAPCs", _militiaAPCs] call _fnc_saveToTemplate;
 
 private _policeVehs = if (_hasContact) then {
-    ["B_GEN_Offroad_01_covered_F", "B_GEN_Offroad_01_comms_F", "B_GEN_Offroad_01_gen_F"]
+    ["Police_I_P_Offroad_01_police_F", "Police_I_P_Offroad_01_comms_F", "Police_I_P_Offroad_01_covered_F", "Police_I_P_Quadbike_01_F"]
 } else {
-    ["B_GEN_Offroad_01_gen_F"]
+    ["Police_I_P_Offroad_01_police_F", "Police_I_P_Quadbike_01_F"]
 };
 
 ["vehiclesPolice", _policeVehs] call _fnc_saveToTemplate;
