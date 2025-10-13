@@ -180,7 +180,6 @@ if (_hasContact) then {
 ["uniforms", _rebUniforms + _dlcUniforms] call _fnc_saveToTemplate;
 
 ["headgear", [
-    "H_Booniehat_khk_hs",
     "H_Booniehat_khk",
     "H_Booniehat_oli",
     "H_Booniehat_tan",
@@ -190,30 +189,20 @@ if (_hasContact) then {
     "H_Cap_blk",
     "H_Cap_headphones",
     "H_ShemagOpen_tan",
-    "H_ShemagOpen_tan_hs",
     "H_ShemagOpen_khk",
-    "H_ShemagOpen_khk_hs",
     "H_Shemag_olive",
-    "H_Shemag_olive_hs",
     "H_Shemag_khk",
-    "H_Shemag_khk_hs",
     "H_Shemag_red",
-    "H_Shemag_red_hs",
     "H_Shemag_blk",
-    "H_Shemag_blk_hs",
     "H_Bandanna_khk_hs",
     "H_Bandanna_khk",
     "H_Bandanna_sand",
     "H_Bandanna_cbr",
     "H_Bandanna_sgg",
     "H_Watchcap_blk",
-    "H_Watchcap_blk_hs",
     "H_Watchcap_camo",
-    "H_Watchcap_camo_hs",
     "H_Watchcap_cbr",
-    "H_Watchcap_cbr_hs",
     "H_Watchcap_khk",
-    "H_Watchcap_khk_hs",
     "H_Beret_blk",
     "H_Beret_gry",
     "H_Beret_brn"
@@ -244,7 +233,7 @@ _loadoutData set ["uniforms", _rebUniforms];
 
 _loadoutData set ["glasses", ["G_Shades_Black", "G_Shades_Blue", "G_Shades_Green", "G_Shades_Red", "G_Shades_Yellowred", "G_Aviator", "G_Spectacles", "G_Spectacles_Tinted", "G_Sport_BlackWhite", "G_Sport_Blackyellow", "G_Sport_Greenblack", "G_Sport_Checkered", "G_Sport_Red", "G_Sport_Blackred", "G_Squares", "G_Squares_Tinted"]];
 _loadoutData set ["goggles", ["G_Lowprofile"]];
-_loadoutData set ["facemask", ["G_Cigarette", "G_Bandanna_shemag", "G_Bandanna_blk", "G_Bandanna_oli", "G_Bandanna_khk", "G_Bandanna_beast", "G_Bandanna_shades", "G_Bandanna_sport", "G_Bandanna_aviator", "G_Balaclava_blk", "G_Balaclava_lowprofile"]];
+_loadoutData set ["facemask", ["G_Cigarette", "G_Bandanna_blk", "G_Bandanna_oli", "G_Bandanna_khk", "G_Bandanna_beast", "G_Bandanna_shades", "G_Bandanna_sport", "G_Bandanna_aviator", "G_Balaclava_blk", "G_Balaclava_lowprofile"]];
 
 _loadoutData set ["items_medical_basic", ["BASIC"] call A3A_fnc_itemset_medicalSupplies];
 _loadoutData set ["items_medical_standard", ["STANDARD"] call A3A_fnc_itemset_medicalSupplies];
