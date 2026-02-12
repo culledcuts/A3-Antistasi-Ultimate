@@ -17,16 +17,16 @@ private _hasContact = "enoch" in A3A_enabledDLC;
 private _vehiclesLightUnarmed = ["I_G_Offroad_01_F"];
 private _vehiclesLightArmed = ["I_G_Offroad_01_armed_F"];
 private _vehiclesAt = ["I_G_Offroad_01_AT_F"];
-["vehiclesTruck", ["I_G_Van_01_transport_F"]] call _fnc_saveToTemplate;
+["vehiclesTruck", ["I_G_Van_01_transport_F", "I_G_Van_02_vehicle_F", "I_G_Van_02_transport_F"]] call _fnc_saveToTemplate;
 private _vehicleAA = [];
 private _vehiclesSupply = ["C_Van_01_box_F"];
 
-["vehiclesBoat", ["I_C_Boat_Transport_02_F"]] call _fnc_saveToTemplate;
+["vehiclesBoat", ["I_G_Boat_Transport_01_F"]] call _fnc_saveToTemplate;
 
 ["vehiclesPlane", ["I_C_Plane_Civil_01_F"]] call _fnc_saveToTemplate;
 
 private _vehiclesCivCar = ["C_Offroad_01_F", "C_Hatchback_01_F", "C_Hatchback_01_sport_F", "C_SUV_01_F"];
-["vehiclesCivTruck", ["C_Truck_02_transport_F", "C_Van_02_transport_F", "C_Van_02_vehicle_F"]] call _fnc_saveToTemplate;
+["vehiclesCivTruck", ["C_Truck_02_transport_F", "C_Truck_02_covered_F", "C_Truck_02_cargo_F", "C_Truck_02_flatbed_F", "C_Van_02_transport_F", "C_Van_02_vehicle_F"]] call _fnc_saveToTemplate;
 ["vehiclesCivSupply", _vehiclesSupply] call _fnc_saveToTemplate;
 ["vehiclesCivHeli", ["C_Heli_Light_01_civil_F"]] call _fnc_saveToTemplate;
 ["vehiclesCivBoat", ["C_Boat_Civil_01_F", "C_Rubberboat"]] call _fnc_saveToTemplate;
@@ -54,8 +54,8 @@ if (_hasWs) then {
     _vehiclesLightUnarmed pushBack "I_G_Offroad_01_armor_base_lxWS";
     _vehiclesLightArmed pushBack "I_G_Offroad_01_armor_armed_lxWS";
     _vehiclesAt pushBack "I_G_Offroad_01_armor_AT_lxWS";
-    _vehicleAA pushBack "I_Tura_Truck_02_aa_lxWS";
-    _staticAA = ["I_Tura_ZU23_lxWS"];
+    _vehicleAA pushBack "a3a_I_G_Truck_02_aa_lxWS";
+    _staticAA pushBack "Aegis_I_G_ZU23_lxWS_F";
 };
 ["vehiclesCivCar", _vehiclesCivCar] call _fnc_saveToTemplate;
 ["vehiclesLightUnarmed", _vehiclesLightUnarmed] call _fnc_saveToTemplate;
@@ -85,6 +85,7 @@ if (_hasWs) then {
 
 private _initialRebelEquipment = [
     "hgun_Pistol_heavy_02_F",
+    "hgun_ACPC2_F",
     "hgun_ACPC2_black_F",
     "hgun_PDW2000_F",
     "30Rnd_9x21_Mag_v2", "30Rnd_9x21_Red_Mag_v2",
@@ -92,21 +93,10 @@ private _initialRebelEquipment = [
     "6Rnd_45ACP_Cylinder",
     "MiniGrenade","SmokeShell",
     ["IEDUrbanSmall_Remote_Mag", 10], ["IEDLandSmall_Remote_Mag", 10], ["IEDUrbanBig_Remote_Mag", 3], ["IEDLandBig_Remote_Mag", 3],
-    "B_FieldPack_oli","B_FieldPack_blk","B_FieldPack_khk",
-    "V_BandollierB_blk","V_BandollierB_cbr","V_BandollierB_rgr","V_BandollierB_khk","V_BandollierB_oli","V_Rangemaster_belt", "V_Rangemaster_belt_blk",
+    "B_FieldPack_oli","B_FieldPack_blk","B_FieldPack_khk","B_AssaultPack_blk",
+    "V_BandollierB_blk","V_BandollierB_khk","V_BandollierB_oli","V_Rangemaster_belt_blk",
     "Binocular", "acc_flashlight","acc_flashlight_smg_01","acc_flashlight_pistol"
 ];
-
-
-if (_hasLawsOfWar) then {
-    _initialRebelEquipment append [
-        "V_Pocketed_olive_F", 
-        "V_Pocketed_coyote_F", 
-        "V_Pocketed_black_F", 
-        "V_Pocketed_hunter_F", 
-        "V_Pocketed_wdl_F"
-    ];
-};
 
 private _backpacks = [];
 
@@ -117,8 +107,6 @@ if (_hasLawsOfWar) then {
         "B_Messenger_Gray_F",
         "B_Messenger_Olive_F"
     ];
-} else {
-    _backpacks append ["B_FieldPack_blk","B_AssaultPack_blk"];
 };
 _initialRebelEquipment append _backpacks;
 
@@ -134,6 +122,7 @@ if (_hasContact) then {
 
 if (_hasApex) then {
     _initialRebelEquipment append [
+        "V_TacChestrig_oli_F",
         ["launch_RPG7_F", 3], 
         ["RPG7_F", 9]
     ];
@@ -154,11 +143,12 @@ private _rebUniforms = [
     "U_IG_Guerilla2_2",
     "U_IG_Guerilla2_3",
     "U_IG_Guerilla3_1",
+    "U_IG_Guerilla3_2",
     "U_IG_leader",
     "U_IG_Guerrilla_6_1",
     "U_I_G_resistanceLeader_F",
+    "U_IG_Guerilla1_3",
     "Opf_U_IG_Guerilla3_3_F",
-    "Opf_U_O_S_Uniform_01_sweater_F",
     "Opf_U_I_I_Uniform_01_tshirt_black_F"
 ];
 
@@ -166,46 +156,25 @@ private _dlcUniforms = [];
 
 if (_hasApex) then {
     _dlcUniforms append [
-        "U_I_C_Soldier_Bandit_5_F",
         "U_I_C_Soldier_Bandit_3_F"
-    ];
-};
-
-if (_hasContact) then {
-    _dlcUniforms append [
-        "U_C_E_LooterJacket_01_F"
     ];
 };
 
 ["uniforms", _rebUniforms + _dlcUniforms] call _fnc_saveToTemplate;
 
-["headgear", [
-    "H_Booniehat_khk",
+["headgear", [              // Note to self: look into BIS headgear randomization for better-looking rebel accessory combos
+    "H_Booniehat_khk",      // https://community.bistudio.com/wiki/Arma_3:_Characters_And_Gear_Encoding_Guide#Headgear_and_Facewear_Randomisation
     "H_Booniehat_oli",
     "H_Booniehat_tan",
     "H_Cap_oli",
-    "H_Cap_tan",
-    "H_Cap_oli_hs",
-    "H_Cap_blk",
     "H_Cap_headphones",
     "H_ShemagOpen_tan",
     "H_ShemagOpen_khk",
     "H_Shemag_olive",
-    "H_Shemag_khk",
-    "H_Shemag_red",
-    "H_Shemag_blk",
-    "H_Bandanna_khk_hs",
     "H_Bandanna_khk",
-    "H_Bandanna_sand",
-    "H_Bandanna_cbr",
-    "H_Bandanna_sgg",
-    "H_Watchcap_blk",
-    "H_Watchcap_camo",
-    "H_Watchcap_cbr",
-    "H_Watchcap_khk",
-    "H_Beret_blk",
-    "H_Beret_gry",
-    "H_Beret_brn"
+    "H_Bandanna_gry",
+    "H_Bandanna_camo",
+    "H_Watchcap_blk"
 ]] call _fnc_saveToTemplate;
 
 /////////////////////
@@ -231,9 +200,9 @@ _loadoutData set ["binoculars", ["Binocular"]];
 
 _loadoutData set ["uniforms", _rebUniforms];
 
-_loadoutData set ["glasses", ["G_Shades_Black", "G_Shades_Blue", "G_Shades_Green", "G_Shades_Red", "G_Shades_Yellowred", "G_Aviator", "G_Spectacles", "G_Spectacles_Tinted", "G_Sport_BlackWhite", "G_Sport_Blackyellow", "G_Sport_Greenblack", "G_Sport_Checkered", "G_Sport_Red", "G_Sport_Blackred", "G_Squares", "G_Squares_Tinted"]];
+_loadoutData set ["glasses", ["G_Shades_Black", "G_Shades_Blue", "G_Shades_Green", "G_Shades_Red", "G_Shades_Yellowred", "G_Aviator", "G_Spectacles", "G_Spectacles_Tinted", "G_Squares", "G_Squares_Tinted"]];
 _loadoutData set ["goggles", ["G_Lowprofile"]];
-_loadoutData set ["facemask", ["G_Cigarette", "G_Bandanna_blk", "G_Bandanna_oli", "G_Bandanna_khk", "G_Bandanna_beast", "G_Bandanna_shades", "G_Bandanna_sport", "G_Bandanna_aviator", "G_Balaclava_blk", "G_Balaclava_lowprofile"]];
+_loadoutData set ["facemask", ["G_Bandanna_blk", "G_Bandanna_shades", "G_Bandanna_sport", "G_Bandanna_aviator", "G_Balaclava_blk", "G_Balaclava_lowprofile"]];
 
 _loadoutData set ["items_medical_basic", ["BASIC"] call A3A_fnc_itemset_medicalSupplies];
 _loadoutData set ["items_medical_standard", ["STANDARD"] call A3A_fnc_itemset_medicalSupplies];
@@ -246,7 +215,7 @@ _loadoutData set ["items_miscEssentials", [] call A3A_fnc_itemset_miscEssentials
 
 private _squadLeaderTemplate = {
     ["uniforms"] call _fnc_setUniform;
-    [selectRandomWeighted [[], 1.25, "glasses", 1, "goggles", 0.75, "facemask", 1]] call _fnc_setFacewear;
+    [selectRandomWeighted [[], 1.25, "glasses", 1.25, "goggles", 0.25, "facemask", .25]] call _fnc_setFacewear;
 
     ["items_medical_standard"] call _fnc_addItemSet;
     ["items_miscEssentials"] call _fnc_addItemSet;
@@ -259,7 +228,7 @@ private _squadLeaderTemplate = {
 
 private _riflemanTemplate = {
     ["uniforms"] call _fnc_setUniform;
-    [selectRandomWeighted [[], 1.25, "glasses", 1, "goggles", 0.75, "facemask", 1]] call _fnc_setFacewear;
+    [selectRandomWeighted [[], 1.5, "glasses", 1, "goggles", 0.25, "facemask", .25]] call _fnc_setFacewear;
     
     ["items_medical_standard"] call _fnc_addItemSet;
     ["items_miscEssentials"] call _fnc_addItemSet;
