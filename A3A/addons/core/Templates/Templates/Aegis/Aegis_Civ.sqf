@@ -1,6 +1,7 @@
 private _hasWs = "ws" in A3A_enabledDLC;
 private _hasLawsOfWar = "orange" in A3A_enabledDLC;
 private _hasApex = "expansion" in A3A_enabledDLC;
+private _hasContact = "enoch" in A3A_enabledDLC;
 
 //////////////////////////////
 //   Civilian Information   //
@@ -12,34 +13,41 @@ private _hasApex = "expansion" in A3A_enabledDLC;
 
 private _civCarsWithWeights = [
     "C_Quadbike_01_F", 0.3
-    ,"C_Hatchback_01_F", 1.0
-    ,"C_Hatchback_01_sport_F", 0.3
+    ,"C_Hatchback_01_F", 1.4
+    ,"C_Hatchback_01_sport_F", 0.1
     ,"C_Offroad_01_F", 1.0
     ,"C_SUV_01_F", 1.0
-    ,"C_Van_02_vehicle_F", 1.0                // van from Orange
-    ,"C_Van_02_transport_F", 0.2            // minibus
-    ,"C_Offroad_02_unarmed_F", 0.5            // Apex 4WD
-    ,"C_Offroad_01_covered_F", 0.1            // Contact
 ];
 
+if (_hasLawsOfWar) then {
+    _civCarsWithWeights append ["C_Van_02_transport_F", 0.2];
+};
+
 if (_hasApex) then {
-    _civCarsWithWeights append ["C_Offroad_02_unarmed_F", 1.0];
+    _civCarsWithWeights append ["C_Offroad_02_unarmed_F", 0.5];
+};
+
+if (_hasContact) then {
+    _civCarsWithWeights append ["C_Offroad_01_covered_F", 0.1];
 };
 
 ["vehiclesCivCar", _civCarsWithWeights] call _fnc_saveToTemplate;
 
 
 ["vehiclesCivIndustrial", [
-    "C_Van_01_transport_F", 1.0
+    "C_Van_02_vehicle_F", 1.0
     ,"C_Van_01_box_F", 0.8
     ,"C_Truck_02_transport_F", 0.5
     ,"C_Truck_02_covered_F", 0.5
-    ,"C_Tractor_01_F", 0.3    
+    ,"C_Truck_02_cargo_lxWS", 0.3
+    ,"C_Truck_02_flatbed_lxWS", 0.3
+    ,"C_Tractor_01_F", 0.2
 ]] call _fnc_saveToTemplate;
 
 ["vehiclesCivBoat", [
     "C_Boat_Civil_01_rescue_F", 0.1            // motorboats
     ,"C_Boat_Civil_01_F", 1.0
+    ,"C_Boat_Civil_02_F", 1.0
     ,"C_Rubberboat", 1.0                    // rescue boat
     ,"C_Boat_Transport_02_F", 1.0            // RHIB
     ,"C_Scooter_Transport_01_F", 0.5
@@ -123,11 +131,10 @@ if (_hasLawsOfWar) then {
   _dlcUniforms append [
     "U_C_Mechanic_01_F"
   ];
-  _workerUniforms append [
+  _workerUniforms = [
     "U_C_ConstructionCoverall_Black_F",
     "U_C_ConstructionCoverall_Blue_F",
-    "U_C_ConstructionCoverall_Red_F",
-    "U_C_ConstructionCoverall_Vrana_F"
+    "U_C_ConstructionCoverall_Red_F"
   ];
 };
 
@@ -153,7 +160,7 @@ if (_hasWs && {(toLowerANSI worldName) in ["sefrouramal", "takistan"]}) then {
   ];
 };
 
-["uniforms", _civUniforms + _pressUniforms + _workerUniforms + _dlcUniforms] call _fnc_saveToTemplate;
+["uniforms", _civUniforms + _pressUniforms + _workerUniforms + _dlcUniforms] call _fnc_saveToTemplate; //Why? Am I missing something?
 
 private _civhats = [
     "H_Bandanna_blu",
@@ -187,7 +194,15 @@ private _loadoutData = call _fnc_createLoadoutData;
 _loadoutData set ["uniforms", _civUniforms];
 _loadoutData set ["pressUniforms", _pressUniforms];
 _loadoutData set ["workerUniforms", _workerUniforms];
+
 _loadoutData set ["pressVests", ["V_Press_F"]];
+private _workerVests = if (_hasLawsOfWar) then {
+    ["V_Safety_yellow_F"];
+} else {
+    [""];
+};
+_loadoutData set ["workerVests", _workerVests];
+
 _loadoutData set ["helmets", _civHats];
 private _pressHelmets = if (_hasLawsOfWar) then {
     ["H_Cap_press", "H_PASGT_basic_blue_press_F", "H_PASGT_neckprot_blue_press_F"];
@@ -195,10 +210,17 @@ private _pressHelmets = if (_hasLawsOfWar) then {
     ["H_Cap_press"];
 };
 _loadoutData set ["pressHelmets", _pressHelmets];
+private _workerHelmets = if (_hasLawsOfWar) then {
+    ["H_Construction_basic_white_F", "H_Construction_earprot_white_F", "H_Construction_basic_yellow_F", "H_Construction_earprot_yellow_F"];
+} else {
+    [""];
+};
+_loadoutData set ["workerHelmets", _workerHelmets];
 
 _loadoutData set ["maps", ["ItemMap"]];
 _loadoutData set ["watches", ["ItemWatch"]];
 _loadoutData set ["compasses", ["ItemCompass"]];
+_loadoutData set ["cameras", ["Camera_lxWS"]];
 
 
 private _manTemplate = {
@@ -212,7 +234,8 @@ private _manTemplate = {
     ["compasses"] call _fnc_addCompass;
 };
 private _workerTemplate = {
-    ["helmets"] call _fnc_setHelmet;
+    ["workerHelmets"] call _fnc_setHelmet;
+    ["workerVests"] call _fnc_setVest;
     ["workerUniforms"] call _fnc_setUniform;
 
     ["items_medical_standard"] call _fnc_addItemSet;
@@ -231,6 +254,7 @@ private _pressTemplate = {
     ["maps"] call _fnc_addMap;
     ["watches"] call _fnc_addWatch;
     ["compasses"] call _fnc_addCompass;
+    ["cameras"] call _fnc_addBinoculars;
 };
 private _prefix = "militia";
 private _unitTypes = [
