@@ -59,18 +59,26 @@ if (_hasContact) then {
     ,"C_Truck_02_box_F", 0.1
 ]] call _fnc_saveToTemplate;
 
-["vehiclesCivMedical", ["C_Van_02_medevac_F", 0.1]] call _fnc_saveToTemplate;
+["vehiclesCivMedical", [
+    "C_Van_02_medevac_F", 0.1
+]] call _fnc_saveToTemplate;
 
 ["vehiclesCivFuel", [
     "C_Van_01_fuel_F", 0.2
-    ,"C_Truck_02_fuel_F", 0.1]] call _fnc_saveToTemplate;
+    ,"C_Truck_02_fuel_F", 0.1
+]] call _fnc_saveToTemplate;
 
-["vehiclesCivPlanes", ["Aegis_C_Plane_Transport_01_civil_F" , "C_Plane_Civil_01_racing_F", "C_Plane_Civil_01_F"]] call _fnc_saveToTemplate;
+["vehiclesCivPlanes", [
+    "C_Plane_Civil_01_F", 0.8
+    ,"C_Plane_Civil_01_racing_F", 0.2
+    ,"Aegis_C_Plane_Transport_01_civil_F", 0.5
+]] call _fnc_saveToTemplate;
 
 ["vehiclesCivHeli", [
-"C_Heli_Light_02_civil_F", 
-"C_Heli_Light_01_civil_F", 
-"C_Heli_Transport_02_civil_F"
+    "C_Heli_Light_01_civil_F", 1.0
+    ,"C_Heli_Light_02_civil_F", 0.6
+    ,"C_Heli_Transport_02_civil_F", 0.3
+    ,"Aegis_C_Heli_Transport_02_VIP_F", 0.1
 ]] call _fnc_saveToTemplate;
 
 //////////////////////////
